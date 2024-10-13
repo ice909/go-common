@@ -4,6 +4,7 @@ package message
 const (
 	LoginMsgType    = "LoginMsg"
 	LoginResMsgType = "LoginResMsg"
+	RegisterMsgType = "RegisterMsg"
 )
 
 type Message struct {
@@ -27,3 +28,4 @@ type LoginResMsg struct {
 	Error string `json:"error"`
 }
 
+type RegisterMsg struct{}
