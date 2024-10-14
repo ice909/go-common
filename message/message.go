@@ -2,10 +2,17 @@ package message
 
 // 确定一些消息类型
 const (
-	LoginMsgType    = "LoginMsg"
-	LoginResMsgType = "LoginResMsg"
-	RegisterMsgType = "RegisterMsg"
+	LoginMsgType       = "LoginMsg"
+	LoginResMsgType    = "LoginResMsg"
+	RegisterMsgType    = "RegisterMsg"
+	RegisterResMsgType = "RegisterResMsg"
 )
+
+type User struct {
+	UserId   int    `json:"userId"`
+	UserPwd  string `json:"userPwd"`
+	UserName string `json:"userName"`
+}
 
 type Message struct {
 	Type string `json:"type"`
@@ -28,4 +35,11 @@ type LoginResMsg struct {
 	Error string `json:"error"`
 }
 
-type RegisterMsg struct{}
+type RegisterMsg struct {
+	User User `json:"user"`
+}
+
+type RegisterResMsg struct {
+	Code  int    `json:"code"`
+	Error string `json:"error"`
+}
