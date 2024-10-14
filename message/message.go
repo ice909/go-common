@@ -30,7 +30,8 @@ type LoginMsg struct {
 
 type LoginResMsg struct {
 	// 返回状态码 500 表示该用户未注册
-	Code int `json:"code"`
+	Code    int   `json:"code"`
+	UserIds []int `json:"userIds"`
 	// 返回错误信息
 	Error string `json:"error"`
 }
