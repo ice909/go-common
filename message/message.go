@@ -9,6 +9,13 @@ const (
 	NotifyUserStatusMsgType = "NotifyUserStatusMsg"
 )
 
+// 定义几个用户状态的常量
+const (
+	UserOnline = iota
+	UserOffline
+	UserBusy
+)
+
 type User struct {
 	UserId     int    `json:"userId"`
 	UserPwd    string `json:"userPwd"`
