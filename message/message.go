@@ -55,6 +55,6 @@ type RegisterResMsg struct {
 }
 
 type NotifyUserStatusMsg struct {
-	UserId     int `json:"userId"`
-	UserStatus int `json:"status"`
+	UserId int `json:"userId"`
+	Status int `json:"status"`
 }
