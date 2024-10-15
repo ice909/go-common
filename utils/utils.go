@@ -13,7 +13,9 @@ func ReadPkg(conn net.Conn) (mes message.Message, err error) {
 	buf := make([]byte, 8096)
 	_, err = conn.Read(buf[:4])
 	if err != nil {
-		fmt.Println("read pkg header fail, err=", err)
+		if err.Error() != "EOF" {
+			fmt.Println("read pkg header fail, err=", err)
+		}
 		return
 	}
 
@@ -28,7 +30,6 @@ func ReadPkg(conn net.Conn) (mes message.Message, err error) {
 	}
 	// 把buf[:pkgLen]反序列化成message.Message
 	err = json.Unmarshal(buf[:pkgLen], &mes)
-	fmt.Println("mes=", mes)
 	if err != nil {
 		fmt.Println("json.Unmarshal fail, err=", err)
 		return
