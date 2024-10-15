@@ -11,7 +11,6 @@ import (
 
 func ReadPkg(conn net.Conn) (mes message.Message, err error) {
 	buf := make([]byte, 8096)
-	fmt.Println("读取客户端发送的数据...")
 	_, err = conn.Read(buf[:4])
 	if err != nil {
 		fmt.Println("read pkg header fail, err=", err)

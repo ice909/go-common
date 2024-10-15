@@ -7,6 +7,7 @@ const (
 	RegisterMsgType         = "RegisterMsg"
 	RegisterResMsgType      = "RegisterResMsg"
 	NotifyUserStatusMsgType = "NotifyUserStatusMsg"
+	SmsMsgType              = "SmsMsg"
 )
 
 // 定义几个用户状态的常量
@@ -15,13 +16,6 @@ const (
 	UserOffline
 	UserBusy
 )
-
-type User struct {
-	UserId     int    `json:"userId"`
-	UserPwd    string `json:"userPwd"`
-	UserName   string `json:"userName"`
-	UserStatus int    `json:"userStatus"`
-}
 
 type Message struct {
 	Type string `json:"type"`
@@ -57,4 +51,9 @@ type RegisterResMsg struct {
 type NotifyUserStatusMsg struct {
 	UserId int `json:"userId"`
 	Status int `json:"status"`
+}
+
+type SmsMsg struct {
+	Content string `json:"content"`
+	User           // 匿名结构体
 }
